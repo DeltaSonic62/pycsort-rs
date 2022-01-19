@@ -15,7 +15,7 @@ impl App for PycSort {
         _frame: &eframe::epi::Frame,
         _storage: Option<&dyn eframe::epi::Storage>,
     ) {
-        self.configure_fonts(ctx);
+        self.font_config(ctx);
     }
 
     fn update(&mut self, ctx: &eframe::egui::CtxRef, _frame: &eframe::epi::Frame) {

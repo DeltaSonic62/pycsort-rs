@@ -41,7 +41,7 @@ impl PycSort {
         }
     }
 
-    pub fn configure_fonts(&self, ctx: &CtxRef) {
+    pub fn font_config(&self, ctx: &CtxRef) {
         // Get Font
         let mut font_def = FontDefinitions::default();
         font_def.font_data.insert(
