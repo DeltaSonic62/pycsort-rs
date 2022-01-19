@@ -1,4 +1,4 @@
-<img src="./assets/icons/128x128.png" alt="logo" width="128" height="128" align="left" />
+<img src="./assets/icons/128x128.png" alt="logo" width="128" height="128" align="right" />
 
 # PycSort RS
 
