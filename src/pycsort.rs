@@ -46,7 +46,7 @@ impl PycSort {
         let mut font_def = FontDefinitions::default();
         font_def.font_data.insert(
             "Inter".to_string(),
-            FontData::from_static(include_bytes!("../assets/Inter-VariableFont_slnt,wght.ttf")),
+            FontData::from_static(include_bytes!("../assets/fonts/Inter-VariableFont_slnt,wght.ttf")),
         );
 
         // Set Font
