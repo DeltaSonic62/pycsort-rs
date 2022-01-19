@@ -1,7 +1,11 @@
 [package]
 name = "pycsort-rs"
 version = "0.1.0"
+authors = ["DeltaSonic62"]
 edition = "2021"
+description = "Picture Sorting App made with Rust and egui"
+repository = "https://github.com/DeltaSonic62/pycsort-rs"
+license = "GPL-3.0-only"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -11,3 +15,10 @@ eframe = "0.16.0"
 glob = "0.3.0"
 home = "0.5.3"
 rfd = "0.6.4"
+
+[package.metadata.bundle]
+category = "public.app-category.utilities"
+icon = ["assets/icons/16x16.png", "assets/icons/32x32.png", "assets/icons/128x128.png", "assets/icons/256x256.png", "assets/icons/512x512.png"]
+identifier = "io.github.deltasonic62.pycsort-rs"
+name = "PycSort RS"
+resources = ["assets/fonts/*.ttf"]
