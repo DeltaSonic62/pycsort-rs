@@ -1,6 +1,6 @@
 [package]
 name = "pycsort-rs"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["DeltaSonic62"]
 edition = "2021"
 description = "Picture Sorting App made with Rust and egui"
@@ -14,7 +14,7 @@ chrono = "^0.4"
 eframe = "0.16.0"
 glob = "0.3.0"
 home = "0.5.3"
-rfd = "0.6.4"
+rfd = "0.9.1"
 
 [package.metadata.bundle]
 category = "public.app-category.utilities"
