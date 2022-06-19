@@ -1,6 +1,6 @@
 [package]
 name = "pycsort-rs"
-version = "0.1.1"
+version = "0.2.0"
 authors = ["DeltaSonic62"]
 edition = "2021"
 description = "Picture Sorting App made with Rust and egui"
@@ -11,7 +11,7 @@ license = "GPL-3.0-only"
 
 [dependencies]
 chrono = "^0.4"
-eframe = "0.16.0"
+eframe = "0.18.0"
 glob = "0.3.0"
 home = "0.5.3"
 rfd = "0.9.1"
