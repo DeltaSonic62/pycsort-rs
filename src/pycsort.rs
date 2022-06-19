@@ -6,12 +6,12 @@ use std::{
     path::{Path, PathBuf},
 };
 
-use eframe::egui::{CtxRef, FontData, FontDefinitions, FontFamily};
+use eframe::egui::{
+    Context, FontData, FontDefinitions, FontFamily, FontFamily::Proportional, FontId, TextStyle::*,
+};
 use rfd::FileDialog;
 
 use self::lib::{get_file_metadata, get_files};
-
-pub const SPACING: f32 = 15.0;
 
 pub struct PycSort {
     pub files: Vec<PathBuf>,
@@ -22,7 +22,7 @@ pub struct PycSort {
 }
 
 impl PycSort {
-    pub fn new() -> PycSort {
+    pub fn new(cc: &eframe::CreationContext<'_>) -> PycSort {
         let home_folder = home::home_dir().expect("Could not find home");
         let folder = home_folder
             .as_os_str()
@@ -32,6 +32,8 @@ impl PycSort {
             + "/Pictures";
         let files = get_files(&String::from(&folder));
 
+        font_config(&cc.egui_ctx);
+
         PycSort {
             num_files: files.len(),
             progress: 0.0,
@@ -39,35 +41,6 @@ impl PycSort {
             files,
             folder,
         }
-    }
-
-    pub fn font_config(&self, ctx: &CtxRef) {
-        // Get Font
-        let mut font_def = FontDefinitions::default();
-        font_def.font_data.insert(
-            "Inter".to_string(),
-            FontData::from_static(include_bytes!("../assets/fonts/Inter-VariableFont_slnt,wght.ttf")),
-        );
-
-        // Set Font
-        font_def.family_and_size.insert(
-            eframe::egui::TextStyle::Heading,
-            (FontFamily::Proportional, 35.),
-        );
-
-        font_def.family_and_size.insert(
-            eframe::egui::TextStyle::Body,
-            (FontFamily::Proportional, 16.),
-        );
-
-        // Load Fonts
-        font_def
-            .fonts_for_family
-            .get_mut(&FontFamily::Proportional)
-            .unwrap()
-            .insert(0, "Inter".to_string());
-
-        ctx.set_fonts(font_def);
     }
 
     pub fn change_folder(&mut self) {
@@ -118,7 +91,7 @@ impl PycSort {
         If it does, prompt user
         */
         if fs::read_dir(String::from(&self.folder) + &"/sorted".to_string()).is_ok() {
-            self.status = "Please delete or rename the existing `sorted` folder and rescan before sorting again".to_string();
+            self.status = "Please delete or rename the existing `sorted` folder and rescan before sorting again.".to_string();
         } else {
             // Create Sorting Folder
             let sorted_folder = String::from(&self.folder) + "/sorted";
@@ -196,4 +169,37 @@ impl PycSort {
 
         res
     }
+}
+
+fn font_config(ctx: &Context) {
+    // Get Font
+    let mut font_def = FontDefinitions::default();
+    font_def.font_data.insert(
+        "Inter".to_string(),
+        FontData::from_static(include_bytes!(
+            "../assets/fonts/Inter-VariableFont_slnt,wght.ttf"
+        )),
+    );
+
+    // Set Font
+    font_def
+        .families
+        .get_mut(&FontFamily::Proportional)
+        .unwrap()
+        .insert(0, "Inter".to_owned());
+
+    ctx.set_fonts(font_def);
+    let mut style = (*ctx.style()).clone();
+    style.text_styles = [
+        (Heading, FontId::new(44., Proportional)),
+        (Name("Heading2".into()), FontId::new(32., Proportional)),
+        (Name("Context".into()), FontId::new(24., Proportional)),
+        (Body, FontId::new(16., Proportional)),
+        (Monospace, FontId::new(14.0, FontFamily::Monospace)),
+        (Button, FontId::new(14.0, Proportional)),
+        (Small, FontId::new(12.0, Proportional)),
+    ]
+    .into();
+
+    ctx.set_style(style);
 }
