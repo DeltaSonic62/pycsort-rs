@@ -14,10 +14,10 @@ You can download PycSort RS from the [GitHub releases page](https://github.com/D
 
 [Chrono](https://github.com/chronotope/chrono) [(MIT/Apache 2.0)](https://github.com/chronotope/chrono/blob/main/LICENSE.txt)
 
-[egui](https://github.com/emilk/egui) ([MIT](https://github.com/emilk/egui/blob/master/LICENSE-MIT)/[Apache 2.0](https://github.com/emilk/egui/blob/master/LICENSE-APACHE))
-
 [glob](https://github.com/rust-lang-nursery/glob) ([MIT](https://github.com/rust-lang-nursery/glob/blob/master/LICENSE-MIT)/[Apache 2.0](https://github.com/rust-lang-nursery/glob/blob/master/LICENSE-APACHE))
 
 [home](https://github.com/brson/home) ([MIT](https://github.com/brson/home/blob/master/LICENSE-MIT)/[Apache 2.0](https://github.com/brson/home/blob/master/LICENSE-APACHE))
+
+[iced](https://github.com/iced-rs/iced) ([MIT](https://github.com/iced-rs/iced/blob/master/LICENSE))
 
 [rfd](https://github.com/PolyMeilex/rfd) (MIT)
